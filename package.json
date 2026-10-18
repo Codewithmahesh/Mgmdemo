@@ -1,0 +1,30 @@
+{
+  "name": "exponentor-demo-opening",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Animated opener for the Exponentor / MGM Online Examination Portal demo",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "npx --yes serve@14 out -l 3000",
+    "present": "next build && npx --yes serve@14 out -l 3000",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "^16.4.2",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5.9.0"
+  },
+  "browserslist": [
+    "chrome >= 120",
+    "edge >= 120",
+    "firefox >= 120",
+    "safari >= 18"
+  ]
+}
