@@ -30,7 +30,7 @@ const typewriter = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'Exponentor Demo Opening',
+  title: 'Praxis by Exponentor',
   description: 'Animated opener for the MGM Online Examination Portal demo.',
 };
 

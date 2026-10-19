@@ -1,5 +1,9 @@
 // Everything you may want to edit before the day lives here.
 
+/** The name of the whole package, shown on the last face of the cube and on the final screen. */
+export const PACKAGE_NAME = 'Praxis';
+export const COMPANY_NAME = 'Exponentor';
+
 /** The three things. `line` is the one short line under each name. */
 export const FEATURES = [
   { no: '01', name: 'Arena', line: 'Secure online exams', icon: 'arena' },

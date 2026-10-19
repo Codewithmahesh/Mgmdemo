@@ -187,7 +187,8 @@ kbd { font: inherit; color: var(--fg); background: rgba(255, 255, 255, .07); bor
 .face h2 { margin: 0; font-family: var(--font-serif); font-weight: 500; font-size: calc(var(--S) * .2); line-height: 1; letter-spacing: -.02em; }
 .face p { margin: 0; color: var(--muted); font-size: calc(var(--S) * .062); line-height: 1.25; max-width: 86%; }
 .face.mark .bm { width: 22%; color: var(--fg); }
-.face.mark h2 { font-size: calc(var(--S) * .13); }
+.face.mark h2 { font-size: calc(var(--S) * .22); }
+.face.mark p { font-family: var(--font-mono); font-size: calc(var(--S) * .05); letter-spacing: .06em; }
 
 /* effects */
 .vignette { position: fixed; inset: 0; z-index: 2; pointer-events: none; opacity: 0; transition: opacity 1s ease-in; background: radial-gradient(ellipse at 50% 50%, transparent 38%, rgba(0, 0, 0, .88) 100%); }

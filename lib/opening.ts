@@ -5,7 +5,7 @@ import { createScraps } from './scraps';
 /*
  * The timeline of the opener.
  *
- *   title -> three (presses 1-7: row, cube, spin) -> playing (six old steps land)
+ *   title -> three (presses 1-7: row, cube, spin that lands on the package name) -> playing (six old steps land)
  *         -> hold (waits for you) -> smash (portal drops) -> final ("One platform.")
  *
  * React renders the markup once (components/Scene.tsx). This file only toggles classes and runs animations on it.
@@ -128,7 +128,7 @@ export function createOpening(app: HTMLElement, opts: OpeningOptions): Opening {
     sceneThree.classList.toggle('cube-on', n >= 4);
     if (n < 4) cubeAt(40, 0, 0.35);
     else if (n <= 6) cubeAt(-(n - 4) * 90, 0, 1);
-    else cubeAt(-540, 0, 1);
+    else cubeAt(-630, 0, 1); /* the last face: the package name */
   }
   function reveal(n: number) {
     if (n <= 3) {
@@ -146,9 +146,10 @@ export function createOpening(app: HTMLElement, opts: OpeningOptions): Opening {
       cubeAt(-(n - 4) * 90, 0.8, 1);
       sfx.whoosh(0.5);
     } else if (n === 7) {
-      step = 7; /* fast spin: Arena, Studio, Pocket again */
-      for (let k = 0; k < 3; k++) {
-        timers.push(setTimeout(() => { cubeAt(-360 - k * 90, 0.42, 1); sfx.whoosh(0.5); }, k * 480));
+      step = 7; /* fast spin: Arena, Studio, Pocket again, then it lands on the package name */
+      for (let k = 0; k < 4; k++) {
+        const last = k === 3;
+        timers.push(setTimeout(() => { cubeAt(-360 - k * 90, last ? 0.8 : 0.42, 1); sfx.whoosh(0.5); }, k * 480));
       }
     }
   }

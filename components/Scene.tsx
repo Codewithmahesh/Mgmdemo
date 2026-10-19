@@ -1,5 +1,5 @@
 import { memo, type CSSProperties } from 'react';
-import { FEATURES } from '@/lib/content';
+import { COMPANY_NAME, FEATURES, PACKAGE_NAME } from '@/lib/content';
 import { BrandMark, FeatureIconSvg } from './Icons';
 import OldCards from './OldCards';
 
@@ -65,7 +65,7 @@ function PortalReplica({ portalUrl }: { portalUrl: string }) {
       </div>
 
       <div className="hero" id="hero">
-        <span className="pill">Live demo</span>
+        <span className="pill">{PACKAGE_NAME} · Live demo</span>
         <h2>One platform.</h2>
         <div className="rule" />
         <p>Arena · Studio · Pocket</p>
@@ -116,7 +116,8 @@ function Scene({ portalUrl }: { portalUrl: string }) {
                 ))}
                 <div className="face mark" style={{ '--a': '270deg' } as CSSProperties}>
                   <BrandMark className="bm" stroke={1.6} />
-                  <h2>Exponentor</h2>
+                  <h2>{PACKAGE_NAME}</h2>
+                  <p>by {COMPANY_NAME}</p>
                 </div>
               </div>
             </div>
