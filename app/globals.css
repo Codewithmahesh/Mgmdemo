@@ -82,9 +82,9 @@ body {
 .tag {
   position: absolute; left: -2cqw; top: -4.6cqw; z-index: 2; white-space: nowrap;
   background: var(--cream); color: var(--ink); font-family: var(--font-sans); font-weight: 700; font-size: 6cqw; letter-spacing: .03em; text-transform: uppercase;
-  padding: 1.2cqw 3cqw; border-radius: 1cqw; transform: rotate(-2deg); box-shadow: 0 1cqw 3cqw rgba(0, 0, 0, .5);
+  padding: 1.2cqw 3cqw; border-radius: 1cqw; transform: rotate(-2deg); box-shadow: 0 .6cqw 1.2cqw rgba(0, 0, 0, .45);
 }
-.in { position: absolute; inset: 0; overflow: hidden; border-radius: 3px; font-size: 5cqw; line-height: 1.3; box-shadow: 0 2cqw 5cqw rgba(0, 0, 0, .6); }
+.in { position: absolute; inset: 0; overflow: hidden; border-radius: 3px; font-size: 5cqw; line-height: 1.3; box-shadow: 0 1.2cqw 2cqw rgba(0, 0, 0, .5); }
 
 /* 1. typed question paper */
 .qp { background: #e9eef7; color: #1b2433; }
@@ -198,7 +198,7 @@ kbd { font: inherit; color: var(--fg); background: rgba(255, 255, 255, .07); bor
   background: radial-gradient(closest-side, rgba(0, 0, 0, .92), rgba(0, 0, 0, .55) 55%, transparent);
 }
 #fx { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 6; pointer-events: none; }
-.ring { position: fixed; z-index: 7; pointer-events: none; opacity: 0; width: 38vmin; height: 38vmin; border-radius: 50%; border: .7vmin solid rgba(255, 255, 255, .9); box-shadow: 0 0 6vmin rgba(217, 119, 87, .85), inset 0 0 6vmin rgba(232, 165, 90, .5); }
+.ring { position: fixed; z-index: 7; pointer-events: none; opacity: 0; width: 38vmin; height: 38vmin; border-radius: 50%; border: .7vmin solid rgba(255, 255, 255, .9);  }
 .flash { position: fixed; inset: 0; z-index: 8; pointer-events: none; opacity: 0; background: #fff; }
 
 /* the portal window: a full-viewport layer, scaled down for the drop. Its page is a copy of the portal's own landing page. */
@@ -207,9 +207,11 @@ kbd { font: inherit; color: var(--fg); background: rgba(255, 255, 255, .07); bor
   transform-origin: 50% 100%; container-type: size; border-radius: 2vw;
   background: var(--navy); color: #fff; font-family: var(--font-sans);
   display: grid; grid-template-rows: auto minmax(0, 1fr);
-  box-shadow: 0 4vw 9vw rgba(0, 0, 0, .75), 0 0 0 .15vw rgba(255, 255, 255, .25);
+  box-shadow: 0 0 0 .15vw rgba(255, 255, 255, .25);
 }
+.win { will-change: transform; }
 .win.on { opacity: 1; }
+.win.zooming { border-radius: 0; box-shadow: none; }
 .chrome { display: flex; align-items: center; gap: 2cqw; background: #efe9de; padding: 1.1cqw 1.8cqw; border-bottom: .1cqw solid #e6dfd8; }
 .lights { display: flex; gap: .8cqw; }
 .lights i { display: block; width: 1.1cqw; height: 1.1cqw; border-radius: 50%; background: #ff5f57; }
@@ -260,7 +262,7 @@ kbd { font: inherit; color: var(--fg); background: rgba(255, 255, 255, .07); bor
 
 .hero {
   grid-area: 2 / 1; position: relative; display: grid; place-content: center; justify-items: center; text-align: center; gap: 2.2cqw;
-  background: rgba(24, 23, 21, .84); backdrop-filter: blur(1.4cqw);
+  background: rgba(24, 23, 21, .9);
   opacity: 0; visibility: hidden; transition: opacity .55s, visibility 0s .55s;
 }
 .win.full { pointer-events: auto; border-radius: 0; box-shadow: none; }

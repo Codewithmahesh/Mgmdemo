@@ -17,7 +17,10 @@ export function createScraps(canvas: HTMLCanvasElement) {
   let lastT = 0;
 
   function size() {
-    const d = Math.min(2, window.devicePixelRatio || 1);
+    /* Keep the canvas small: a full-screen canvas at 2x or 3x pixel ratio is very heavy on phones. */
+    let d = Math.min(1.5, window.devicePixelRatio || 1);
+    const MAX_PIXELS = 2_000_000;
+    if (window.innerWidth * window.innerHeight * d * d > MAX_PIXELS) d = Math.sqrt(MAX_PIXELS / (window.innerWidth * window.innerHeight));
     canvas.width = Math.round(window.innerWidth * d);
     canvas.height = Math.round(window.innerHeight * d);
     ctx.setTransform(d, 0, 0, d, 0, 0);
@@ -49,7 +52,7 @@ export function createScraps(canvas: HTMLCanvasElement) {
     size,
     burst(rect: Rect) {
       const k = window.innerWidth / 1920;
-      for (let i = 0; i < 170; i++) {
+      for (let i = 0; i < 110; i++) {
         const side = Math.random();
         let x: number, y: number, vx: number, vy: number;
         if (side < 0.45) { x = rect.left + Math.random() * rect.width; y = rect.bottom - 6; vx = (Math.random() - 0.5) * 1.1; vy = -(0.25 + Math.random() * 0.9); }

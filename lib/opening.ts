@@ -232,11 +232,15 @@ export function createOpening(app: HTMLElement, opts: OpeningOptions): Opening {
   function zoom() {
     const g = geo!;
     sfx.swoosh();
+    /* Only transform is animated here, so the whole zoom runs on the GPU. Animating border-radius (or clip-path) forced
+       the full-screen portal to be repainted on the main thread every frame, which is what made this step stutter. */
+    win.classList.add('zooming');
+    world.style.visibility = 'hidden'; /* the portal covers it; nothing behind needs painting during the zoom */
     anim(
       win,
       [
-        { transform: T(g.X, g.Y, 0, g.s, g.s), borderRadius: '2vw' },
-        { transform: 'none', borderRadius: '0px' },
+        { transform: T(g.X, g.Y, 0, g.s, g.s) },
+        { transform: 'none' },
       ],
       { duration: 780, easing: 'cubic-bezier(.7,0,.15,1)', fill: 'forwards' },
       showFinal,
@@ -308,6 +312,7 @@ export function createOpening(app: HTMLElement, opts: OpeningOptions): Opening {
     win.classList.remove('on', 'full');
     win.style.transform = '';
     win.style.borderRadius = '';
+    win.classList.remove('zooming');
     world.style.visibility = '';
     shadow.style.opacity = '0';
     setCount(1);
