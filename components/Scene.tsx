@@ -89,9 +89,8 @@ function Scene({ portalUrl }: { portalUrl: string }) {
           <OldCards />
 
           <div className="scene s-title">
-            <span className="pill">MGM&apos;s College of Engineering · Nanded</span>
-            <h1>How we take exams today.</h1>
-            <p className="by">Mahesh Giri · Exponentor</p>
+            <h1 className="wordmark"><i className="dot" /><span>{COMPANY_NAME}</span></h1>
+            <p className="tagline">Stop doing the same work <em>by hand, every semester.</em></p>
             <p className="hint">Press <kbd>Space</kbd> for each beat.</p>
           </div>
 

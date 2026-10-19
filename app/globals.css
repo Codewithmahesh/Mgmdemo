@@ -291,3 +291,27 @@ button:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) {
   .vignette, .stage { transition-duration: .01ms; }
 }
+
+/* home page: the Exponentor name, centred and big */
+:root { --orange: #ff4d1c; --paper: #f1ede4; --font-home-sans: var(--f-familjen), var(--f-inter), ui-sans-serif, system-ui, sans-serif; --font-home-serif: var(--f-instrument), var(--f-serif), Georgia, serif; }
+body { transition: background-color .5s; }
+body:has(.app[data-phase="title"]) { background-color: #0d0d0b; background-image: radial-gradient(48vw 36vw at 50% 46%, rgba(255, 77, 28, .16), transparent 70%); }
+.app[data-phase="title"] .brand { opacity: 0; }
+.brand { transition: opacity .3s; }
+.s-title { align-items: center; justify-content: center; text-align: center; gap: clamp(1rem, 3vh, 2rem); }
+.s-title h1.wordmark { margin: 0; display: flex; align-items: center; justify-content: center; gap: .1em; font-family: var(--font-home-sans); font-weight: 700; letter-spacing: -.055em; line-height: 1; font-size: clamp(3.2rem, min(14.5vw, 26vh), 15rem); color: var(--paper); max-width: none; }
+.wordmark .dot { flex: none; width: .5em; height: .5em; border-radius: 50%; background: var(--orange); margin-right: .06em; box-shadow: 0 0 0 0 rgba(255, 77, 28, .5); }
+.tagline { margin: 0; font-family: var(--font-home-sans); font-weight: 500; letter-spacing: -.02em; font-size: clamp(1.1rem, min(2.6vw, 4.4vh), 2.3rem); color: rgba(241, 237, 228, .78); text-wrap: balance; }
+.tagline em { font-family: var(--font-home-serif); font-style: italic; font-weight: 400; font-size: 1.12em; letter-spacing: -.005em; color: var(--orange); }
+.s-title .hint { color: rgba(241, 237, 228, .45); margin-top: clamp(.6rem, 3vh, 2rem); }
+.s-title .hint kbd { background: rgba(241, 237, 228, .08); border-color: rgba(241, 237, 228, .25); color: var(--paper); }
+.app[data-phase="title"] .ctrl button { color: var(--paper); background: rgba(241, 237, 228, .06); border-color: rgba(241, 237, 228, .22); }
+@keyframes wm-rise { from { opacity: 0; transform: translateY(3vh) scale(.97); } to { opacity: 1; transform: none; } }
+@keyframes wm-dot { 0% { transform: scale(0); } 60% { transform: scale(1.25); } 100% { transform: scale(1); } }
+@keyframes wm-ping { 0% { box-shadow: 0 0 0 0 rgba(255, 77, 28, .5); } 100% { box-shadow: 0 0 0 .45em rgba(255, 77, 28, 0); } }
+@keyframes cv-rise { from { opacity: 0; transform: translateY(2.4vh); } to { opacity: 1; transform: none; } }
+.app[data-phase="title"] .wordmark span { animation: wm-rise 1s .35s cubic-bezier(.2, .7, .2, 1) both; }
+.app[data-phase="title"] .wordmark .dot { animation: wm-dot .7s .1s cubic-bezier(.3, 1.4, .5, 1) both, wm-ping 2.4s 1.2s ease-out infinite; }
+.app[data-phase="title"] .tagline { animation: cv-rise .9s 1.1s cubic-bezier(.2, .7, .2, 1) both; }
+.app[data-phase="title"] .s-title .hint { animation: cv-rise .9s 1.7s cubic-bezier(.2, .7, .2, 1) both; }
+@media (prefers-reduced-motion: reduce) { .app[data-phase="title"] .wordmark span, .app[data-phase="title"] .wordmark .dot, .app[data-phase="title"] .tagline, .app[data-phase="title"] .s-title .hint { animation: none; } }
