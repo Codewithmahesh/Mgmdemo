@@ -90,7 +90,7 @@ function Scene({ portalUrl }: { portalUrl: string }) {
 
           <div className="scene s-title">
             <h1 className="wordmark"><i className="dot" /><span>{COMPANY_NAME}</span></h1>
-            <p className="tagline">Stop doing the same work <em>by hand, every semester.</em></p>
+            <p className="tagline">There&apos;s something in the <em>cloud</em> for every exam.</p>
             <p className="hint">Press <kbd>Space</kbd> for each beat.</p>
           </div>
 
